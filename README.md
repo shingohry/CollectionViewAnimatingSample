@@ -1,1 +1,2 @@
 # CollectionViewAnimatingSample
+![](screen.gif)
