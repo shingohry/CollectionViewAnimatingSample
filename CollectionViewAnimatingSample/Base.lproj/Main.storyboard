@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,16 +72,23 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="wKn-0I-Vte">
-                        <barButtonItem key="leftBarButtonItem" title="+2" id="cyU-1e-39s">
+                        <barButtonItem key="leftBarButtonItem" title="remove" id="XG9-RO-sJV">
                             <connections>
-                                <action selector="plus2ButtonDidTap:" destination="BYZ-38-t0r" id="3JL-PD-M4U"/>
+                                <action selector="removeButtonDidTap:" destination="BYZ-38-t0r" id="Igy-Q8-WgF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3n8-rL-5bV">
-                            <connections>
-                                <action selector="addButtonDidTap:" destination="BYZ-38-t0r" id="Ips-1o-oLG"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="3n8-rL-5bV">
+                                <connections>
+                                    <action selector="addButtonDidTap:" destination="BYZ-38-t0r" id="Ips-1o-oLG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="+2" id="cyU-1e-39s">
+                                <connections>
+                                    <action selector="plus2ButtonDidTap:" destination="BYZ-38-t0r" id="3JL-PD-M4U"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="K2V-SV-Q3o" id="OZl-9h-yTq"/>

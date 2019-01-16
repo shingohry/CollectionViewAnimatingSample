@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addButtonDidTap(_ sender: Any) {
-        let next = data.first! + 1
+        let next = data.isEmpty ? 1 : data.first! + 1
         data.insert(next, at: 0)
 
         collectionView.performBatchUpdates({
@@ -27,13 +27,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func plus2ButtonDidTap(_ sender: Any) {
-        let next = data.first! + 1
+        let next = data.isEmpty ? 1 : data.first! + 1
         data.insert(next, at: 0)
         data.insert(next + 1, at: 0)
 
         collectionView.performBatchUpdates({
             self.collectionView.insertItems(at: [IndexPath(item: 0, section: 0),
                                                  IndexPath(item: 1, section: 0)])
+        }, completion: nil)
+    }
+
+    @IBAction func removeButtonDidTap(_ sender: Any) {
+        guard !data.isEmpty else { return }
+        let index: Int = Int(arc4random_uniform(UInt32(data.count)))
+
+        data.remove(at: index)
+        collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
         }, completion: nil)
     }
 }
